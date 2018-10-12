@@ -12,6 +12,14 @@ class ViewController: UIViewController {
     var flag = 0
     var temp = 0
     var result = 0
+    func plus(op1: Double, op2: Double) ->Double{
+        return op1 + op2}
+    func subtract(op1: Double, op2: Double) ->Double{
+        return op1 - op2}
+    func mul(op1: Double, op2: Double) ->Double{
+        return op1 * op2}
+    func divd(op1: Double, op2: Double) ->Double{
+        return op1 / op2}
     @IBAction func setZero(_ sender: Any) {
         couterDisplay.text = ""
     }
@@ -30,13 +38,13 @@ class ViewController: UIViewController {
     
     @IBAction func operate(_ sender: UIButton) {
         let operation = sender.currentTitle!
-        
-        temp = couterDisplay.text
         switch operation {
-        case "+": performOperation{$0 + $1}
-        
+        case "+": func plus
+        case "-":
+        case "*":
+        case "/":
         default:break
-            <#code#>
+            
         }
     }
     
