@@ -12,14 +12,9 @@ class ViewController: UIViewController {
     var flag = 0
     var temp = 0
     var result = 0
-    func plus(op1: Double, op2: Double) ->Double{
-        return op1 + op2}
-    func subtract(op1: Double, op2: Double) ->Double{
-        return op1 - op2}
-    func mul(op1: Double, op2: Double) ->Double{
-        return op1 * op2}
-    func divd(op1: Double, op2: Double) ->Double{
-        return op1 / op2}
+   
+   
+    
     @IBAction func setZero(_ sender: Any) {
         couterDisplay.text = ""
     }
@@ -31,18 +26,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var couterDisplay: UITextField!
     
-    @IBAction func getDigit(_ sender: UIButton) {
-        let digit = sender.currentTitle!
-        couterDisplay.text = couterDisplay.text! + digit
-    }
     
     @IBAction func operate(_ sender: UIButton) {
         let operation = sender.currentTitle!
         switch operation {
-        case "+": func plus
-        case "-":
-        case "*":
-        case "/":
+        case "+": flag = 1
+            break
+        case "-": flag = 2
+            break
+        case "*": flag = 3
+            break
+        case "/": flag = 4
+            break
         default:break
             
         }
@@ -51,16 +46,21 @@ class ViewController: UIViewController {
    
     @IBAction func operateCharacter5(_ sender: Any) {
         if flag == 1{
+            
             result = temp +  Int(couterDisplay.text!)!
         }
         else if flag == 2{
+            temp = Int(couterDisplay.text!)!
             result = temp - Int(couterDisplay.text!)!
         }
         else if flag == 3{
+            temp = Int(couterDisplay.text!)!
             result = temp * Int(couterDisplay.text!)!
         }
         else if flag == 4{
+            temp = Int(couterDisplay.text!)!
             result = temp / Int(couterDisplay.text!)!
+            
         }
         couterDisplay.text = "\(result)"
 
