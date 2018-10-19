@@ -26,45 +26,50 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var couterDisplay: UITextField!
     
-    
-    @IBAction func operate(_ sender: UIButton) {
-        let operation = sender.currentTitle!
-        switch operation {
-        case "+": flag = 1
-            break
-        case "-": flag = 2
-            break
-        case "*": flag = 3
-            break
-        case "/": flag = 4
-            break
-        default:break
-            
-        }
+    @IBAction func plus(_ sender: Any) {
+        temp = Int(couterDisplay.text!)!
+        flag = 1
+        couterDisplay.text = ""
+    }
+    @IBAction func subtract(_ sender: Any) {
+        temp = Int(couterDisplay.text!)!
+        flag = 2
+        couterDisplay.text = ""
+    }
+    @IBAction func mult(_ sender: Any) {
+        temp = Int(couterDisplay.text!)!
+        flag = 3
+        couterDisplay.text = ""
+    }
+    @IBAction func division(_ sender: Any) {
+        temp = Int(couterDisplay.text!)!
+        flag = 4
+        couterDisplay.text = ""
     }
     
-   
-    @IBAction func operateCharacter5(_ sender: Any) {
+    @IBAction func operate(_ sender: Any) {
         if flag == 1{
-            
             result = temp +  Int(couterDisplay.text!)!
         }
         else if flag == 2{
-            temp = Int(couterDisplay.text!)!
+            
             result = temp - Int(couterDisplay.text!)!
         }
         else if flag == 3{
-            temp = Int(couterDisplay.text!)!
+            
             result = temp * Int(couterDisplay.text!)!
         }
         else if flag == 4{
-            temp = Int(couterDisplay.text!)!
+            
             result = temp / Int(couterDisplay.text!)!
             
         }
         couterDisplay.text = "\(result)"
 
+        
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
