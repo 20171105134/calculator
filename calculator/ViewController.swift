@@ -11,9 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     var flag = 0
     var temp : Double = 0
+    var secoungImport : Double = 0
+    var fristImport : Double = 0
     var buffer : Double = 0
     var result :Double = 0
-   
+    var fakeResult : Double = 0
+    var userImportNumber : Bool = false
    
     
     @IBAction func setZero(_ sender: Any) {
@@ -22,15 +25,22 @@ class ViewController: UIViewController {
     
     @IBAction func digitButton(_ sender: UIButton) {
         let digit = sender.currentTitle!
-        couterDisplay.text = couterDisplay.text! + digit
+        if userImportNumber {
+   
+            couterDisplay.text = couterDisplay.text! + digit
+        } else {
+            couterDisplay.text = digit
+            userImportNumber = true
+        }
+
     }
     
     @IBOutlet weak var couterDisplay: UITextField!
     
     @IBAction func plus(_ sender: Any) {
+        fristImport = Double(couterDisplay.text!)!
         buffer = temp + Double(couterDisplay.text!)!
         temp = Double(couterDisplay.text!)!
-        flag = 1
         couterDisplay.text = ""
     }
     @IBAction func subtract(_ sender: Any) {
@@ -49,8 +59,8 @@ class ViewController: UIViewController {
         couterDisplay.text = ""
     }
     @IBAction func division(_ sender: Any) {
-        buffer = Double(couterDisplay.text!)! / temp
-        temp = 1
+        buffer = temp/Double(couterDisplay.text!)!
+    
         temp = Double(couterDisplay.text!)!
         flag = 4
         couterDisplay.text = ""
@@ -59,26 +69,26 @@ class ViewController: UIViewController {
     
     @IBAction func operate(_ sender: Any) {
         if flag == 1{
-            result = buffer +  Double(couterDisplay.text!)!
+            result = temp +  Double(couterDisplay.text!)!
         }
         else if flag == 2{
             
-            result = buffer - Double(couterDisplay.text!)!
+            result = temp - Double(couterDisplay.text!)!
         }
         else if flag == 3{
             
-            result = buffer * Double(couterDisplay.text!)!
+            result = temp * Double(couterDisplay.text!)!
         }
         else if flag == 4{
             
-            result = Double(couterDisplay.text!)! / buffer
+            result = temp/Double(couterDisplay.text!)!
             
         }
         couterDisplay.text = "\(result)"
-
-        
+        print(temp)
+        print(plus)
     }
-    
+
     
     
     override func viewDidLoad() {
