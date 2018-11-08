@@ -17,11 +17,14 @@ class ViewController: UIViewController {
     var result :Double = 0
     var fakeResult : Double = 0
     var userImportNumber : Bool = false
+    var charapter = 0
+    var subCharapter = 0
    
     
     @IBAction func setZero(_ sender: Any) {
         couterDisplay.text = ""
         buffer = 0
+        secoundImport = 0
     }
     
     @IBAction func digitButton(_ sender: UIButton) {
@@ -48,18 +51,20 @@ class ViewController: UIViewController {
         fristImport = Double(couterDisplay.text!)!
         couterDisplay.text = ""
         flag = 1
+        charapter = 1
     }
     @IBAction func subtract(_ sender: Any) {
         
-        //if fristImport != 0{
+        if subCharapter == 1{
             buffer = fristImport + (-Double(couterDisplay.text!)!)
+        }
         //}
         //buffer = temp - Double(couterDisplay.text!)!
         //buffer = Double(couterDisplay.text!)!
         fristImport = Double(couterDisplay.text!)!
         flag = 2
         couterDisplay.text = ""
-        
+        charapter = 1
     }
     @IBAction func mult(_ sender: Any) {
         //fristImport = 1
@@ -68,31 +73,51 @@ class ViewController: UIViewController {
         secoundImport = Double(couterDisplay.text!)!
         flag = 3
         couterDisplay.text = ""
+        charapter = 1
     }
     @IBAction func division(_ sender: Any) {
-        buffer = (1/secoundImport) * Double(couterDisplay.text!)!
+        //temp = Double(couterDisplay.text!)!/*/secoundImport*/
+        //buffer = temp/Double(couterDisplay.text!)!/*secoundImport*/
+        //buffer = /*(1/secoundImport) * */ Double(couterDisplay.text!)!/secoundImport
     
-        secoundImport = buffer
+        //secoundImport = buffer
+        if charapter == 0{
+            buffer = Double(couterDisplay.text!)!/secoundImport
+            
+        }
+        if charapter == 1{
+            buffer = secoundImport/Double(couterDisplay.text!)!
+        }
         flag = 4
+        secoundImport = Double(couterDisplay.text!)!
         couterDisplay.text = ""
+        charapter = 1
     }
    
     
     @IBAction func operate(_ sender: Any) {
         if flag == 1{
             result = buffer +  Double(couterDisplay.text!)!
+            //buffer = 0
+            //secoundImport = 0
         }
         else if flag == 2{
             
             result = buffer - Double(couterDisplay.text!)!
+            //buffer = 0
+            //secoundImport = 0
         }
         else if flag == 3{
             
             result = buffer * Double(couterDisplay.text!)!
+            //buffer = 0
+            //secoundImport = 0
         }
         else if flag == 4{
             
             result = buffer/Double(couterDisplay.text!)!
+            //buffer = 0
+            //secoundImport = 0
             
         }
         couterDisplay.text = "\(result)"
