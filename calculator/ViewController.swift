@@ -25,6 +25,9 @@ class ViewController: UIViewController {
         couterDisplay.text = ""
         buffer = 0
         secoundImport = 0
+        fristImport = 0
+        charapter = 0
+        //subCharapter = 0
     }
     
     @IBAction func digitButton(_ sender: UIButton) {
@@ -55,12 +58,15 @@ class ViewController: UIViewController {
     }
     @IBAction func subtract(_ sender: Any) {
         
-        if subCharapter == 1{
-            buffer = fristImport + (-Double(couterDisplay.text!)!)
+        if charapter == 1{
+            buffer = fristImport - Double(couterDisplay.text!)!
         }
         //}
         //buffer = temp - Double(couterDisplay.text!)!
         //buffer = Double(couterDisplay.text!)!
+        else if charapter == 0{
+            buffer = Double(couterDisplay.text!)! - fristImport
+        }
         fristImport = Double(couterDisplay.text!)!
         flag = 2
         couterDisplay.text = ""
@@ -82,14 +88,17 @@ class ViewController: UIViewController {
     
         //secoundImport = buffer
         if charapter == 0{
+            fristImport = 1
             buffer = Double(couterDisplay.text!)!/secoundImport
             
         }
-        if charapter == 1{
-            buffer = secoundImport/Double(couterDisplay.text!)!
+        else if charapter == 1{
+            
+            buffer = fristImport/Double(couterDisplay.text!)!
         }
         flag = 4
-        secoundImport = Double(couterDisplay.text!)!
+        //secoundImport = Double(couterDisplay.text!)!
+        fristImport = Double(couterDisplay.text!)!
         couterDisplay.text = ""
         charapter = 1
     }
@@ -121,6 +130,8 @@ class ViewController: UIViewController {
             
         }
         couterDisplay.text = "\(result)"
+        charapter = 0
+        //subCharapter = 0
         //print(temp)
         //print(plus)
     }
