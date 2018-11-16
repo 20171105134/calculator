@@ -21,80 +21,38 @@ class ViewController: UIViewController {
     var subCharapter = 0
     
     
-    
-    func isOperator(value){
-    var operatorString = "+-*/()";
-    return operatorString.indexOf(value) > -1
-    }
-    
-    func getPrioraty(value){
-    switch(value){
-    case  "+" : return 1
-    case  "-" : return 1
 
-    case  "*" : return 2
-    case  "/" :return 2
-    default:
-    return 0;
+
+     //the inviadle stack
+     
+    public struct Stack<T>  {
+        fileprivate var array = [T]()
+        public var isEmpty: Bool {
+            return array.isEmpty
+            
+        }
+        
+        public var count: Int {
+            return array.count
+            
+        }
+        public mutating func push(_ element: T) {
+            array.append(element)
+            
+        }
+        public mutating func pop() -> T? {
+            return array.popLast()
+            
+        }
+        public var peak: T? {
+            return array.last
+            
+        }
+        
     }
-    }
+ 
     
-    func prioraty(o1, o2){
-    return getPrioraty(o1) <= getPrioraty(o2);
-    }
-    
-    func dal2Rpn(exp){
-        var inputStack : Array<Any>
-        var outputStack : Array<Any>
-        var outputQueue : Array<Any>
-    
-    for(var i = 0, len = exp.length; i < len; i++){
-    var cur = exp[i]
-    if(cur != " " ){
-    inputStack.push(cur)
-    }
-    }
-    //'step one');
-    while(inputStack.length > 0){
-    var cur = inputStack.dropFirst()
-    if(isOperator(cur)){
-    if(cur == "(" ){
-    outputStack.push(cur);
-    }else if(cur ==  ")" ){
-        var po = outputStack.dropLast()
-        while(po != ( &&outputStack.length > 0){
-    outputQueue.push(po);
-    po = outputStack.pop();
-    }
-    if po != "(" {
-    throw "error: unmatched ()";
-    }
-    }else{
-    while(prioraty(cur, outputStack[outputStack.length - 1]) && outputStack.length > 0){
-    outputQueue.push(outputStack.dropLast()());
-    }
-    outputStack.push(cur);
-    }
-    }else{
-    outputQueue.push(new Number(cur));
-    }
-    }
-    //('step two');
-    if(outputStack.length > 0){
-    if(outputStack[outputStack.length - 1] == ')' || outputStack[outputStack.length - 1] == '('){
-    throw "error: unmatched ()";
-    }
-    while(outputStack.length > 0){
-    outputQueue.push(outputStack.pop());
-    }
-    }
-    //('step three');
-    return outputQueue;
-    
-    }
-    
-    
-    
+
     
     
     
@@ -186,6 +144,33 @@ class ViewController: UIViewController {
    
     
     @IBAction func operate(_ sender: Any) {
+        
+     /*
+        struct Stack<T>  {
+            var array = [T]()
+            var isEmpty: Bool {
+                return array.isEmpty
+            }
+            var count: Int {
+                return array.count
+                
+            }
+            public mutating func push(_ element: T) {
+                array.append(element)
+                
+            }
+            public mutating func pop() -> T? {
+                return array.popLast()
+                
+            }
+            var peak: T? {
+                return array.last
+                
+            }
+            
+        }
+        */
+        
         if flag == 1{
             result = buffer +  Double(couterDisplay.text!)!
             //buffer = 0
