@@ -7,8 +7,28 @@
 //
 
 import UIKit
+struct Stack<T>  {
+    fileprivate var array = [T]()
+    public var isEmpty: Bool {
+        return array.isEmpty
+    }
+public var count: Int {
+        return array.count
+    }
+    public mutating func push(_ element: T) {
+        array.append(element)
+    }
+    public mutating func pop() -> T? {
+        return array.popLast()
+    }
+    public var peak: T? {
+        return array.last
+    }
+}
 
 class ViewController: UIViewController {
+    var numberStack = Stack<Double>()
+    var operatorStack = Stack<String>()
     var flag = 0
     var temp : Double = 0
     var secoundImport : Double = 1
@@ -20,15 +40,18 @@ class ViewController: UIViewController {
     var charapter = 0
     var subCharapter = 0
     
-    
 
 
      //the inviadle stack
-     
-    public struct Stack<T>  {
+     /*
+   public struct Stack<T>  {
         fileprivate var array = [T]()
+        var str : String
+    
+    
         public var isEmpty: Bool {
             return array.isEmpty
+            
             
         }
         
@@ -42,7 +65,6 @@ class ViewController: UIViewController {
         }
         public mutating func pop() -> T? {
             return array.popLast()
-            
         }
         public var peak: T? {
             return array.last
@@ -50,6 +72,14 @@ class ViewController: UIViewController {
         }
         
     }
+*/
+    /////////////////////////
+    
+    
+    
+  
+    
+ 
  
     
 
@@ -145,32 +175,14 @@ class ViewController: UIViewController {
     
     @IBAction func operate(_ sender: Any) {
         
-     /*
-        struct Stack<T>  {
-            var array = [T]()
-            var isEmpty: Bool {
-                return array.isEmpty
-            }
-            var count: Int {
-                return array.count
-                
-            }
-            public mutating func push(_ element: T) {
-                array.append(element)
-                
-            }
-            public mutating func pop() -> T? {
-                return array.popLast()
-                
-            }
-            var peak: T? {
-                return array.last
-                
-            }
+        var str = couterDisplay.text;
+        var strLength : Int = str.count
+        for i in 0...strLength
+        {
             
         }
-        */
         
+       /*
         if flag == 1{
             result = buffer +  Double(couterDisplay.text!)!
             //buffer = 0
@@ -200,8 +212,9 @@ class ViewController: UIViewController {
         //subCharapter = 0
         //print(temp)
         //print(plus)
+        */
     }
-
+ 
     
     
     override func viewDidLoad() {
