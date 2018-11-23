@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     var userImportNumber : Bool = false
     var charapter = 0
     var subCharapter = 0
+    //var str = String()
+    var desult = "nihao"
     
 
 
@@ -121,7 +123,7 @@ class ViewController: UIViewController {
         //buffer = temp + Double(couterDisplay.text!)!
         //temp = Double(couterDisplay.text!)!
         fristImport = Double(couterDisplay.text!)!
-        couterDisplay.text = ""
+        couterDisplay.text = couterDisplay.text! + "+"
         flag = 1
         charapter = 1
     }
@@ -138,7 +140,7 @@ class ViewController: UIViewController {
         }
         fristImport = Double(couterDisplay.text!)!
         flag = 2
-        couterDisplay.text = ""
+        couterDisplay.text = couterDisplay.text! + "-"
         charapter = 1
     }
     @IBAction func mult(_ sender: Any) {
@@ -147,7 +149,7 @@ class ViewController: UIViewController {
         buffer = Double(couterDisplay.text!)! * secoundImport
         secoundImport = Double(couterDisplay.text!)!
         flag = 3
-        couterDisplay.text = ""
+        couterDisplay.text = couterDisplay.text! + "*"
         charapter = 1
     }
     @IBAction func division(_ sender: Any) {
@@ -168,7 +170,7 @@ class ViewController: UIViewController {
         flag = 4
         //secoundImport = Double(couterDisplay.text!)!
         fristImport = Double(couterDisplay.text!)!
-        couterDisplay.text = ""
+        couterDisplay.text = couterDisplay.text! + "/"
         charapter = 1
     }
    
@@ -176,11 +178,17 @@ class ViewController: UIViewController {
     @IBAction func operate(_ sender: Any) {
         
         var str = couterDisplay.text;
-        var strLength : Int = str.count
-        for i in 0...strLength
-        {
-            
+        var i = 0
+        
+        while i < (str?.count)! {
+            i = i + 1
+            if str[i] == "+"||str[i] =="-"||str[i] == "*"||str[i] == "/" {
+                
+            }
+        //desult = desult + "1"  (test)
         }
+        //couterDisplay.text = "\(desult)"
+        
         
        /*
         if flag == 1{
