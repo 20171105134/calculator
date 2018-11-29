@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     //var str = String()
     var desult = "nihao"
     
+    
 
 
      //the inviadle stack
@@ -85,6 +86,12 @@ class ViewController: UIViewController {
  
     
 
+    @IBAction func setBack(_ sender: Any) {
+        if couterDisplay.characters.count>0 {
+            couterDisplay.remove(at: inputString.index(before: couterDisplay.endIndex))
+            couterDisplay.text = couterDisplay
+        }
+    }
     
     
     
@@ -177,14 +184,16 @@ class ViewController: UIViewController {
     
     @IBAction func operate(_ sender: Any) {
         
-        var str = couterDisplay.text;
+        var str = （Array couterDisplay.text）！
         var i = 0
         
         while i < (str?.count)! {
             i = i + 1
-            if str[i] == "+"||str[i] =="-"||str[i] == "*"||str[i] == "/" {
+            if str[i] == "+" {
                 
             }
+        //    "\\" can not bee used so use boo;
+        //    but if use bbol will meet same question
         //desult = desult + "1"  (test)
         }
         //couterDisplay.text = "\(desult)"

@@ -152,6 +152,14 @@
                                     <action selector="division:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qan-fP-T2X"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m7-Y6-c1B">
+                                <rect key="frame" x="308" y="342" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;-"/>
+                                <connections>
+                                    <action selector="setBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="daS-oQ-kRk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
